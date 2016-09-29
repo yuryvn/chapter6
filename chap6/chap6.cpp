@@ -4,6 +4,12 @@
 #include "stdafx.h"
 #include "Chap6.h"
 
+#include <iostream>
+#include <iomanip>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
 
 using namespace std;
 

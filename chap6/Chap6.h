@@ -1,9 +1,9 @@
+#pragma once
 
-#include <iostream>
-#include <iomanip>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
+#ifndef Chap6_h
+#define Chap6_h
+
+
 
 class Dice
 {
@@ -17,3 +17,5 @@ private:
 	int MaxDiceValue;
 	int DiceValue;
 };
+
+#endif
