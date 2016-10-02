@@ -1,6 +1,7 @@
 
 #include "stdafx.h"
-#include "Chap6.h"
+//#include "Chap6.h"
+#include "exercises.h"
 
 #include <iostream>
 #include <iomanip>
@@ -12,10 +13,18 @@ using namespace std;
 
 int main(void)
 {
-	Dice OurDice;
 	srand(time(NULL));
 	
-	cout << "Dice roll=" << OurDice.RollDice() << endl;
+	TComplex a, b, c;
+
+	a.SetNumber(3.4, 5.6);
+	b.SetNumber(-1.2, 4.6);
+
+	c.PrintNumber();
+	c.Sum(a, b);
+	c.PrintNumber();
+	c.Minus(a, b);
+	c.PrintNumber();
 	
 
 	return 0;
