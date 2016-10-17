@@ -21,5 +21,28 @@ private:
 	void Minus_private();
 };
 
+class TRational
+{
+public:
+	TRational(int a=1,int b=1);
+	~TRational();
+	void Sum(TRational &var1, TRational &var2);
+	void Minus(TRational &var1, TRational &var2);
+	void Mult(TRational &var1, TRational &var2);
+	void Delete(TRational &var1, TRational &var2);
+	void PrintInt();
+	void PrintFloat();
+	int GetUp();
+	int GetBottom();
+
+	template <class TValues> 
+		void SetValues(TValues a, TValues b);
+
+private:
+	int Up;
+	int Bottom;
+	void MakeSmall();//
+};
+
 //BLYADS KII GIT
 

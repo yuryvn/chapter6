@@ -54,3 +54,68 @@ void TComplex::Minus( TComplex &Var1,  TComplex &Var2){
 void TComplex::PrintNumber(){
 	cout << "Complex Number is " << "(" << Re1 << "," << Im1 << ")" << endl;
 }
+
+//-------------------Rational
+TRational::TRational(int a = 1, int b = 1){
+		SetValues(a, b);
+	}
+TRational::~TRational(){}
+
+void TRational::Sum(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom() + var1.GetBottom()*var2.GetUp();
+	Bottom = var1.GetBottom() * var2.GetBottom();
+	MakeSmall();
+}
+void TRational::Minus(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom() - var1.GetBottom()*var2.GetUp();
+	Bottom = var1.GetBottom() * var2.GetBottom();
+	MakeSmall();
+}
+	
+void TRational::Mult(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetUp();
+	Bottom = var1.GetBottom()*var2.GetBottom();
+	MakeSmall();
+}
+
+void TRational::Delete(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom();
+	Bottom = var1.GetBottom()*var2.GetUp();
+	MakeSmall();
+}
+void TRational::PrintInt(){
+	cout << Up << "/" << Bottom << endl;
+}
+void TRational::PrintFloat(){
+	cout << (float)Up / Bottom << endl;
+}
+
+int TRational::GetUp(){
+	return Up;
+}
+
+int TRational::GetBottom(){
+	return Bottom;
+}
+
+template <class TValues>
+void TRational::SetValues(TValues a, TValues b){
+
+	while (a != (int)a){
+		cout << "Incorrect input for top, enter integer" << endl;
+		cin >> a;
+	}
+	Up = a;
+
+	while (b != (int)b){
+		cout << "Incorrect input for bottom, enter integer" << endl;
+		cin >> b;
+	}
+	Bottom = b;
+
+	MakeSmall();
+}
+
+void TRational::MakeSmall();
+
+
