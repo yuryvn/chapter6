@@ -55,48 +55,67 @@ void TComplex::PrintNumber(){
 	cout << "Complex Number is " << "(" << Re1 << "," << Im1 << ")" << endl;
 }
 
-//ex 3.7 rational class
-
-
-TRational::TRational(int A_init = 1, int B_init = 1){ SetNumber(A_init,B_init); }
-
+//-------------------Rational
+TRational::TRational(int a = 1, int b = 1){
+		SetValues(a, b);
+	}
 TRational::~TRational(){}
 
-
-void TRational::ReduceNumber(){
-	for(int i=1;i<
+void TRational::Sum(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom() + var1.GetBottom()*var2.GetUp();
+	Bottom = var1.GetBottom() * var2.GetBottom();
+	MakeSmall();
+}
+void TRational::Minus(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom() - var1.GetBottom()*var2.GetUp();
+	Bottom = var1.GetBottom() * var2.GetBottom();
+	MakeSmall();
+}
+	
+void TRational::Mult(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetUp();
+	Bottom = var1.GetBottom()*var2.GetBottom();
+	MakeSmall();
 }
 
-
-template <class InitClass>
-
-void TRational::SetNumber(InitClass A_init, InitClass B_init){
-	while (((int)A_init != A_init){
-		cout << "A must be integer, reenter A:";
-		cin >> A_init;
-	}
-	a = (int)A_init;
-
-	while (((int)B_init != B_init||B_init==0){
-		cout << "B must be integer and not equal to 0, reenter B:";
-		cin >> B_init;
-	}
-	b = (int)B_init;
-	ReduceNumber();
+void TRational::Delete(TRational &var1, TRational &var2){
+	Up = var1.GetUp()*var2.GetBottom();
+	Bottom = var1.GetBottom()*var2.GetUp();
+	MakeSmall();
 }
-
-void TRational::PrintNormal(){
-	cout << a << "/" << b << endl;
+void TRational::PrintInt(){
+	cout << Up << "/" << Bottom << endl;
 }
-
 void TRational::PrintFloat(){
-	double out = (double)a / (double)b;
-	cout << out << endl;
+	cout << (float)Up / Bottom << endl;
 }
 
+int TRational::GetUp(){
+	return Up;
+}
 
-void Sum(TRational  &Var1, TRational  &Var2);
-void Minus(TRational &Var1, TRational &Var2);
-void Mult(TRational  &Var1, TRational  &Var2);
-void Del(TRational &Var1, TRational &Var2);
+int TRational::GetBottom(){
+	return Bottom;
+}
+
+template <class TValues>
+void TRational::SetValues(TValues a, TValues b){
+
+	while (a != (int)a){
+		cout << "Incorrect input for top, enter integer" << endl;
+		cin >> a;
+	}
+	Up = a;
+
+	while (b != (int)b){
+		cout << "Incorrect input for bottom, enter integer" << endl;
+		cin >> b;
+	}
+	Bottom = b;
+
+	MakeSmall();
+}
+
+void TRational::MakeSmall();
+
 

@@ -21,24 +21,28 @@ private:
 	void Minus_private();
 };
 
-//ex 6.7 Rational numbers operations
 class TRational
 {
 public:
-	TRational(int A_init = 1, int B_init = 1);
+	TRational(int a=1,int b=1);
 	~TRational();
-	template <class InitClass>
-	void SetNumber(InitClass A_init, InitClass B_init);
-
-	void PrintNormal();
+	void Sum(TRational &var1, TRational &var2);
+	void Minus(TRational &var1, TRational &var2);
+	void Mult(TRational &var1, TRational &var2);
+	void Delete(TRational &var1, TRational &var2);
+	void PrintInt();
 	void PrintFloat();
-	void Sum(TRational  &Var1, TRational  &Var2);
-	void Minus(TRational &Var1, TRational &Var2);
-	void Mult(TRational  &Var1, TRational  &Var2);
-	void Del(TRational &Var1, TRational &Var2);
+	int GetUp();
+	int GetBottom();
 
+	template <class TValues> 
+		void SetValues(TValues a, TValues b);
 
 private:
-	int a, b;
-	void ReduceNumber();
+	int Up;
+	int Bottom;
+	void MakeSmall();//
 };
+
+//BLYADS KII GIT
+
