@@ -15,16 +15,15 @@ int main(void)
 {
 	srand(time(NULL));
 	
-	TComplex a, b, c;
+	TRational a(64,16), b(-3,9), c(5.9,'s');
 
-	a.SetNumber(3.4, 5.6);
-	b.SetNumber(-1.2, 4.6);
-
-	c.PrintNumber();
+	a.PrintInt();
+	b.PrintInt(); b.PrintFloat();
+	c.PrintInt(); c.PrintFloat();
+	cout << "I am here" << endl;
 	c.Sum(a, b);
-	c.PrintNumber();
-	c.Minus(a, b);
-	c.PrintNumber();
+
+	c.PrintInt(); c.PrintFloat();
 	
 
 	return 0;

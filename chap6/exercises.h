@@ -24,7 +24,7 @@ private:
 class TRational
 {
 public:
-	TRational(int a=1,int b=1);
+	TRational(int a = 1, int b = 1);
 	~TRational();
 	void Sum(TRational &var1, TRational &var2);
 	void Minus(TRational &var1, TRational &var2);

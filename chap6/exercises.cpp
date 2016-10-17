@@ -56,7 +56,7 @@ void TComplex::PrintNumber(){
 }
 
 //-------------------Rational
-TRational::TRational(int a = 1, int b = 1){
+TRational::TRational(int a, int b ){
 	SetValues(a, b);
 }
 TRational::~TRational(){}
@@ -116,4 +116,12 @@ void TRational::SetValues(TValues a, TValues b){
 	MakeSmall();
 }
 
-void TRational::MakeSmall();
+void TRational::MakeSmall(){
+	int C;
+	abs(Up) > abs(Bottom) ? C = abs(Bottom) : C = abs(Up);
+	for (int i = 2; i <= C; i++){
+		while (Up%i == 0 && Bottom%i == 0) {
+			Up /= i; Bottom /= i;
+		}
+	}
+}
