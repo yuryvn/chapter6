@@ -37,7 +37,7 @@ public:
 
 	template <class TValues> 
 		void SetValues(TValues a, TValues b);
-
+		
 private:
 	int Up;
 	int Bottom;
